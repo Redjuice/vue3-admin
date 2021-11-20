@@ -1,0 +1,8 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // 设置默认格式化工具为prettier
+  "editor.formatOnSave": true, // 是否开启vscode的保存自动格式化
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.format.enable": true // 是否开启vscode的eslint
+}
