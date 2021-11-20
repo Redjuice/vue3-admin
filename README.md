@@ -8,7 +8,7 @@
 yarn create vite
 ```
 
-### 配置 eslint+prettier
+### 配置 eslint + prettier
 
 - vscode 安装 eslint + prettier
 - 安装以下依赖
@@ -57,7 +57,7 @@ module.exports = {
 };
 ```
 
-新建.vscode/settings.json
+`新建.vscode/settings.json`
 
 ```
 {
@@ -85,7 +85,45 @@ declare module '*.vue' {
 解决 git 提交代码时`warning: LF will be replaced by CRLF in`的警告
 
 ```
-# 原因是存在符号转义问题
-# windows中的换行符为 CRLF， 而在linux下的换行符为LF，所以在执行add . 时出现提示，解决办法：
+// 原因是存在符号转义问题
+// windows中的换行符为 CRLF， 而在linux下的换行符为LF，所以在执行add . 时出现提示，解决办法：
 git config --global core.autocrlf false
+```
+
+### 配置 husky + lint-staged
+
+`执行以下操作`
+
+```
+// && 连接符在vscode中会报错，建议在windows的powershell执行
+npx husky-init && npm install
+
+yarn add lint-staged -D
+```
+
+`修改package.json`
+
+```
+// package.json
+...
+"scripts": {
+    ...
+    "lint-staged": "lint-staged"
+},
+"lint-staged": {
+  "*.{js,vue}": [
+    "eslint --fix --ext .js,.vue src",
+    "prettier --write ./src/*.{less,js,json,.vue}",
+    "git add ."
+  ]
+}
+```
+
+`修改husky/pre-commit`
+
+```
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npm run lint-staged
 ```
