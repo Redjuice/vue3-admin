@@ -1,7 +1,74 @@
 # Vue 3 + Vite
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+### 目录结构
 
-## Recommended IDE Setup
+### 初始化项目
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+```
+yarn create vite
+```
+
+### 配置 eslint+prettier
+
+- vscode 安装 eslint + prettier
+- 安装以下依赖
+
+```
+yarn add eslint eslint-plugin-vue eslint-config-prettier eslint-plugin-prettier prettier -D
+```
+
+新建.eslintrc.js
+
+```
+module.exports = {
+  root: true,
+  env: {
+    browser: true,
+    commonjs: true,
+    es2021: true
+  },
+  parser: 'vue-eslint-parser', // 指定如何解析语法
+  extends: [
+    'eslint:recommended',
+    'plugin:vue/vue3-recommended',
+    'plugin:prettier/recommended'
+  ],
+  rules: {}
+};
+
+```
+
+新建.prettierrc.js
+
+```
+module.exports = {
+  printWidth: 160, // 单行输出（不折行）的（最大）长度
+  tabWidth: 2, // 每个缩进级别的空格数
+  tabs: false, // 使用制表符 (tab) 缩进行而不是空格 (space)。
+  semi: true, // 是否在语句末尾打印分号
+  singleQuote: true, // 是否使用单引号
+  quoteProps: 'as-needed', // 仅在需要时在对象属性周围添加引号
+  bracketSpacing: true, // 是否在对象属性添加空格
+  jsxBracketSameLine: true, // 将>多行 JSX 元素放在最后一行的末尾，而不是单独放在下一行（不适用于自闭元素）,默认false,这里选择>不另起一行
+  htmlWhitespaceSensitivity: 'ignore', // 指定 HTML 文件的全局空白区域敏感度, "ignore" - 空格被认为是不敏感的
+  trailingComma: 'none', // 去除对象最末尾元素跟随的逗号  useTabs: false, // 不使用缩进符，而使用空格
+  jsxSingleQuote: false, // jsx 不使用单引号，而使用双引号
+  arrowParens: 'always', // 箭头函数，只有一个参数的时候，也需要括号
+  rangeStart: 0, // 每个文件格式化的范围是文件的全部内容
+  proseWrap: 'always', // 当超出print width（上面有这个参数）时就折行
+  endOfLine: 'lf' // 换行符使用 lf
+};
+```
+
+新建.vscode/settings.json
+
+```
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // 设置默认格式化工具为prettier
+  "editor.formatOnSave": true, // 是否开启vscode的保存自动格式化
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.format.enable": true // 是否开启vscode的eslint
+}
+```
