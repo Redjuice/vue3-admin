@@ -336,3 +336,26 @@ Vite 也同时提供了对 .scss, .sass, .less, .styl 和 .stylus 文件的内�
 // 如果是用的是单文件组件，可以通过 <style lang="less">自动开启。
 yarn add less -D
 ```
+
+### 配置 Element Plus
+
+```
+yarn add element-plus
+
+// 自动按需导入
+yarn add unplugin-vue-components -D
+
+// 修改vite.config.js
+// vite.config.ts
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+export default {
+  plugins: [
+    // ...
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
+  ],
+}
+```
