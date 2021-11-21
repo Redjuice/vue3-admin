@@ -9,7 +9,7 @@ import HelloWorld from './components/HelloWorld.vue';
   <HelloWorld msg="Hello Vue 3 + Vite" />
 </template>
 
-<style>
+<style lang="less">
 #app {
   margin-top: 60px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
