@@ -127,3 +127,24 @@ yarn add lint-staged -D
 
 npm run lint-staged
 ```
+
+### 配置 commitizen
+
+```
+// 全局安装commitizen插件
+npm install commitizen -g
+
+// 使用npm包cz-conventional-changelog进行初始化
+commitizen init cz-conventional-changelog --save --save-exact
+```
+
+`修改package.json`
+
+```
+// package.json
+...
+"scripts": {
+    ...
+    "commit": "git cz"
+},
+```

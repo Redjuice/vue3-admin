@@ -10,13 +10,15 @@
     "prettier:fix": "prettier --write ./src/*.{less,js,json,.vue}",
     "format:all": "npm-run-all -s eslint:fix prettier:fix",
     "prepare": "husky install",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "commit": "git cz"
   },
   "dependencies": {
     "vue": "^3.2.16"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.3",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -33,5 +35,10 @@
       "prettier --write ./src/*.{less,js,json,.vue}",
       "git add ."
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
