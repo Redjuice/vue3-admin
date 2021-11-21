@@ -1,0 +1,82 @@
+// margin和padding
+@line: 2, 3, 4; // 多行文本隐藏配置
+@interval: 0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50; // margin与padding配置
+@fontWeight: 400, 500, 600, 700, 800; // 字体加粗配置
+@fontSize: 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42,
+  44, 46, 48, 50; // 字体大小配置
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.p-0 {
+  padding: 0 !important;
+}
+
+// 内/外边距
+each(@interval, {
+  .m-t-@{value} {
+    margin-top: ~'@{value}px';
+  }
+  .m-b-@{value} {
+    margin-bottom:  ~'@{value}px';
+  }
+  .m-l-@{value} {
+    margin-left:  ~'@{value}px';
+  }
+  .m-r-@{value} {
+    margin-right:  ~'@{value}px';
+  }
+  .p-t-@{value} {
+    padding-top:  ~'@{value}px';
+  }
+  .p-b-@{value} {
+    padding-bottom:  ~'@{value}px';
+  }
+  .p-l-@{value} {
+    padding-left:  ~'@{value}px';
+  }
+  .p-r-@{value} {
+    padding-right:  ~'@{value}px';
+  }
+});
+
+// 字重
+each(@fontWeight, {
+  .font-weight-@{value} {
+    font-weight: ~'@{value}';
+  }
+});
+// 字体
+each(@fontSize, {
+  .font-@{value} {
+    font-size: ~'@{value}px';
+  }
+});
+
+//单行隐藏显示...
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 多行文本...
+each(@line, {
+  .ellipsis-@{value} {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: ~'@{value}';
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+  }
+});
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}

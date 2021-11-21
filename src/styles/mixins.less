@@ -1,0 +1,10 @@
+// 这里提供了一些公共的mixins函数
+
+// px2vw
+@base-width: 1920;
+
+.vw(@attr, @px) {
+  @vw: (@px / @base-width) * 100;
+
+  @{attr}: ~'@{vw}vw';
+}
