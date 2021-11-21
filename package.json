@@ -6,10 +6,10 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
+    "style:fix": "stylelint \"src/**/*.(vue|less|css)\" --fix",
     "eslint:fix": "eslint --fix --ext .js,.vue src",
     "prettier:fix": "prettier --write ./src/*.{less,js,json,.vue}",
-    "style:fix": "stylelint \"src/**/*.(vue|less|css)\" --fix",
-    "format:all": "npm-run-all -s eslint:fix prettier:fix style:fix",
+    "format:all": "npm-run-all -s style:fix eslint:fix prettier:fix",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
     "commit": "git cz"

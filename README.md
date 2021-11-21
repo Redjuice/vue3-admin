@@ -29,8 +29,8 @@ module.exports = {
   },
   parser: 'vue-eslint-parser', // 指定如何解析语法
   extends: [
-    'eslint:recommended',
     'plugin:vue/vue3-recommended',
+    'eslint:recommended',
     'plugin:prettier/recommended'
   ],
   rules: {}
@@ -82,6 +82,8 @@ declare module '*.vue' {
 }
 ```
 
+如果没有效果, 可在文件首行添加`// @ts-nocheck`, 禁用检查此文件
+
 解决 git 提交代码时`warning: LF will be replaced by CRLF in`的警告
 
 ```
@@ -105,13 +107,13 @@ yarn add lint-staged -D
 
 ```
 // package.json
-...
+...,
 "scripts": {
-    ...
+    ...,
     "lint-staged": "lint-staged"
 },
 "lint-staged": {
-  "*.{js,vue,less}": [
+  "*.{js,vue}": [
     "stylelint \"src/**/*.(vue|less|css)\" --fix",
     "eslint --fix --ext .js,.vue src",
     "prettier --write ./src/*.{less,js,json,.vue}",
@@ -143,9 +145,9 @@ commitizen init cz-conventional-changelog --save --save-exact
 
 ```
 // package.json
-...
+...,
 "scripts": {
-    ...
+    ...,
     "commit": "git cz"
 },
 ```
@@ -480,14 +482,14 @@ module.exports = {
 
 ```
 // package.json
-...
+...,
 "scripts": {
-  ...
+  ...,
   "style:fix": "stylelint \"src/**/*.(vue|less|css)\" --fix",
-  "format:all": "npm-run-all -s eslint:fix prettier:fix style:fix",
+  "format:all": "npm-run-all -s style:fix eslint:fix prettier:fix",
 },
 "lint-staged": {
-  "*.{js,vue,less}": [
+  "*.{js,vue}": [
     ...,
     "stylelint \"src/**/*.(vue|less|css)\" --fix"
   ]
@@ -498,7 +500,7 @@ module.exports = {
 
 ```
 // settings.json
-...
+...,
 "editor.codeActionsOnSave": {
   ...,
   "source.fixAll.stylelint": true
@@ -544,10 +546,103 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 export default {
   plugins: [
-    // ...
+    ...,
+    // 自动按需导入Element Plus
     Components({
       resolvers: [ElementPlusResolver()],
     }),
   ],
 }
+```
+
+### 配置 全局 configs 文件
+
+`详情见src/configs/**/*.less`
+
+### 配置 全局样式文件
+
+`详情见src/styles/**/*.less`
+
+### 配置 vite.config.js
+
+```
+/* eslint-disable no-undef */
+import { defineConfig, loadEnv } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import { resolve } from 'path';
+import configs from './src/configs';
+
+// https://vitejs.dev/config/
+export default ({ mode }) => {
+  // 获取环境变量
+  process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
+  const { VITE_APP_API_ROOT } = process.env;
+  return defineConfig({
+    plugins: [
+      ...
+    ],
+    css: {
+      // 指定传递给 CSS 预处理器的选项
+      preprocessorOptions: {
+        less: {
+          javascriptEnabled: true, // 支持内联JavaScript
+          additionalData: `@import "@/styles/index.less";` // 引入全局样式
+        }
+      }
+    },
+    resolve: {
+      // 别名
+      alias: {
+        '@': resolve(__dirname, 'src') // src路径
+      }
+    },
+    // 开发服务器选项
+    server: {
+      port: configs.devPort, // 指定开发服务器端口
+      open: configs.devOpen, // 自动打开浏览器
+      // 为开发服务器配置自定义代理规则
+      proxy: {
+        '/api': {
+          target: VITE_APP_API_ROOT, //配置你要请求的服务器地址
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, '')
+        }
+      }
+    }
+  });
+};
+```
+
+### 配置 jsconfig.json
+
+```
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*.vue", "src/**/*.js", "vite.config.js"],
+  "exclude": ["node_modules", "dist"]
+}
+// jsconfig.json 文件来定义项目上下文时，表明该目录是 JavaScript 项目的根目录，可以配置属于项目的文件、要从项目中排除的文件以及编译器选项
+
+// Exclude 属性(glob 模式)告诉语言服务哪些文件不是源代码的一部分。 这使性能保持在一个高水平。 如果 IntelliSense 速度慢，则向排除列表添加文件夹
+
+// 您可以使用 include 属性(glob 模式)显式地设置项目中的文件。 如果没有 include 属性，则默认情况下包含包含目录和子目录中的所有文件。 如果指定了 include 属性，则只包含这些文件。
+
+// 如果您的工作区中没有 jsconfig.json，VS Code 将默认排除 node_modules 文件夹
+
+// 当你的 JavaScript 项目变得太大而且性能降低时，通常是因为类似node_modules的库文件夹。 如果 VS 代码检测到项目变得太大，它将提示您编辑exclude。
+```
+
+`jsconfig.json首行可能会报错, 设置.vscode/settings.json`
+
+```
+{
+  ...,
+  "js/ts.implicitProjectConfig.checkJs": true // 启用或禁用javaScript文件的语义检查
+}
+
 ```

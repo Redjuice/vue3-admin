@@ -14,7 +14,7 @@ import HelloWorld from './components/HelloWorld.vue';
   margin-top: 60px;
   text-align: center;
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  color: #2c3e50;
+  color: @primary-color;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

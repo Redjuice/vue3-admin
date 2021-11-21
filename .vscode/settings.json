@@ -6,5 +6,6 @@
     "source.fixAll.eslint": true, // eslint
     "source.fixAll.stylelint": true // stylelint
   },
-  "eslint.format.enable": true // 是否开启vscode的eslint
+  "eslint.format.enable": true,
+  "js/ts.implicitProjectConfig.checkJs": true // 启用或禁用javaScript文件的语义检查
 }

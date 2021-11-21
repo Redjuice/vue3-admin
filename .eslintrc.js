@@ -7,8 +7,8 @@ module.exports = {
   },
   parser: 'vue-eslint-parser', // 指定如何解析语法
   extends: [
-    'eslint:recommended',
     'plugin:vue/vue3-recommended',
+    'eslint:recommended',
     'plugin:prettier/recommended'
   ],
   rules: {}
