@@ -34,10 +34,11 @@
     "vite": "^2.6.4"
   },
   "lint-staged": {
-    "*.{js,vue}": [
+    "*.{js,vue,less}": [
       "eslint --fix --ext .js,.vue src",
       "prettier --write ./src/*.{less,js,json,.vue}",
-      "git add ."
+      "git add .",
+      "stylelint \"src/**/*.(vue|less|css)\" --fix"
     ]
   },
   "config": {

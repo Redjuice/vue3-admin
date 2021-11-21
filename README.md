@@ -294,6 +294,12 @@ module.exports = {
   "style:fix": "stylelint \"src/**/*.(vue|less|css)\" --fix",
   "format:all": "npm-run-all -s eslint:fix prettier:fix style:fix",
 },
+"lint-staged": {
+  "*.{js,vue,less}": [
+    ...,
+    "stylelint \"src/**/*.(vue|less|css)\" --fix"
+  ]
+},
 ```
 
 `修改.vscode/settings.json`
