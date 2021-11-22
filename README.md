@@ -119,6 +119,7 @@ npm run lint-staged
 ### 配置 commitizen
 
 [掘金: 使用 commitizen 实现按团队规范提交代码](https://juejin.cn/post/6898894346695737352)
+[博客园: commit 规范方案探讨](https://www.cnblogs.com/dahe1989/p/13803548.html)
 
 ```
 // 全局安装commitizen插件
@@ -137,6 +138,28 @@ commitizen init cz-conventional-changelog --save --save-exact
     ...,
     "commit": "git cz"
 },
+```
+
+### 配置 自定义 commitizen 提交规范
+
+[掘金: commitizen + husky 规范 git 提交信息](https://juejin.cn/post/6844904025868271629)
+
+`安装依赖`
+
+```
+yarn add commitlint-config-cz  cz-customizable -D
+```
+
+`新建.cz-config.js`
+
+```
+具体查看.cz-config.js
+```
+
+`新建.commitlintrc.js`
+
+```
+具体查看.commitlintrc.js
 ```
 
 ### 配置 stylelint
