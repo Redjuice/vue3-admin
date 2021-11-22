@@ -1,4 +1,10 @@
-<script setup></script>
+<script setup>
+import { useRouter } from 'vue-router';
+const router = useRouter();
+const goAbout = () => {
+  router.push('/about');
+};
+</script>
 
 <template>
   <div id="app">
@@ -6,6 +12,8 @@
       <router-link to="/home">Home</router-link>
       |
       <router-link to="/about">About</router-link>
+      |
+      <div @click="goAbout">goAbout</div>
     </div>
     <router-view />
   </div>
@@ -15,9 +23,12 @@
 #app {
   margin-top: 60px;
   text-align: center;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   color: @primary-color;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+  #nav {
+    .flex-center();
+
+    cursor: pointer;
+  }
 }
 </style>
