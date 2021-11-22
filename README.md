@@ -51,7 +51,7 @@ yarn add eslint eslint-plugin-vue eslint-config-prettier eslint-plugin-prettier 
     ...,
     "eslint:fix": "eslint --fix --ext .js,.vue src",
     "prettier:fix": "prettier --write ./src/../*.{less,js,json,.vue}",
-    "format:all": "npm-run-all -s eslint:fix prettier:fix",
+    "format:all": "npm run eslint:fix && npm run prettier:fix",
 },
 ```
 
@@ -164,7 +164,7 @@ yarn add stylelint stylelint-config-standard stylelint-order -D
 "scripts": {
   ...,
   "style:fix": "stylelint \"src/**/*.(vue|less|css)\" --fix",
-  "format:all": "npm-run-all -s style:fix eslint:fix prettier:fix",
+  "format:all": "npm run style:fix && npm run eslint:fix && npm run prettier:fix",
 },
 ```
 
