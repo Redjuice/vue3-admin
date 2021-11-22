@@ -20,41 +20,13 @@ yarn add eslint eslint-plugin-vue eslint-config-prettier eslint-plugin-prettier 
 `新建.eslintrc.js`
 
 ```
-module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    commonjs: true,
-    es2021: true
-  },
-  parser: 'vue-eslint-parser', // 指定如何解析语法
-  extends: [
-    'plugin:vue/vue3-recommended',
-    'eslint:recommended',
-    'plugin:prettier/recommended'
-  ],
-  rules: {}
-};
+// 具体查看.eslintrc.js
 ```
 
 `新建.prettierrc.js`
 
 ```
-module.exports = {
-  printWidth: 80, // 单行输出（不折行）的（最大）长度
-  tabWidth: 2, // 每个缩进级别的空格数
-  semi: true, // 是否在语句末尾打印分号
-  singleQuote: true, // 是否使用单引号
-  quoteProps: 'as-needed', // 仅在需要时在对象属性周围添加引号
-  bracketSpacing: true, // 是否在对象属性添加空格
-  htmlWhitespaceSensitivity: 'ignore', // 指定 HTML 文件的全局空白区域敏感度, "ignore" - 空格被认为是不敏感的
-  trailingComma: 'none', // 去除对象最末尾元素跟随的逗号  useTabs: false, // 不使用缩进符，而使用空格
-  jsxSingleQuote: false, // jsx 不使用单引号，而使用双引号
-  arrowParens: 'always', // 箭头函数，只有一个参数的时候，也需要括号
-  rangeStart: 0, // 每个文件格式化的范围是文件的全部内容
-  proseWrap: 'always', // 当超出print width（上面有这个参数）时就折行
-  endOfLine: 'lf' // 换行符使用 lf
-};
+// 具体查看.prettierrc.js
 ```
 
 `新建.vscode/settings.json`
@@ -181,318 +153,7 @@ yarn add stylelint stylelint-config-standard stylelint-order -D
 `新建.stylelintrc.js`
 
 ```
-module.exports = {
-  extends: ['stylelint-config-standard'],
-  plugins: ['stylelint-order'],
-  // 设定需要忽略的文件
-  ignoreFiles: ['dist/**/*'],
-  rules: {
-    // 颜色指定小写
-    'color-hex-case': 'lower',
-    // 禁止空块
-    'block-no-empty': true,
-    // 颜色6位长度
-    'color-hex-length': 'long',
-    // 兼容自定义标签名
-    'selector-type-no-unknown': [
-      true,
-      {
-        ignoreTypes: []
-      }
-    ],
-    // 忽略伪类选择器 ::v-deep
-    'selector-pseudo-element-no-unknown': [
-      true,
-      {
-        ignorePseudoElements: ['v-deep']
-      }
-    ],
-    // 禁止低优先级的选择器出现在高优先级的选择器之后。
-    'no-descending-specificity': null,
-    // 不验证@未知的名字，为了兼容scss的函数
-    'at-rule-no-unknown': null,
-    // 禁止空注释
-    'comment-no-empty': true,
-    // 禁止简写属性的冗余值
-    'shorthand-property-no-redundant-values': true,
-    // 禁止值的浏览器引擎前缀
-    'value-no-vendor-prefix': true,
-    // property-no-vendor-prefix
-    'property-no-vendor-prefix': true,
-    // 允许小于 1 的小数有一个前导零
-    'number-leading-zero': 'always',
-    // 禁止空第一行
-    'no-empty-first-line': true,
-    // 关闭 不允许重复的选择器 的验证
-    'no-duplicate-selectors': null,
-    // 属性的排序
-    'order/properties-order': [
-      // 布局属性
-      'display',
-      'visibility',
-      'overflow',
-      'overflow-x',
-      'overflow-y',
-      'overscroll-behavior',
-      'scroll-behavior',
-      'scroll-snap-type',
-      'scroll-snap-align',
-      // 布局属性：浮动
-      'float',
-      'clear',
-      // 布局属性：定位
-      'position',
-      'left',
-      'right',
-      'top',
-      'bottom',
-      'z-index',
-      // 布局属性：列表
-      'list-style',
-      'list-style-type',
-      'list-style-position',
-      'list-style-image',
-      // 布局属性：表格
-      'table-layout',
-      'border-collapse',
-      'border-spacing',
-      'caption-side',
-      'empty-cells',
-      // 布局属性：弹性
-      'flex-flow',
-      'flex-direction',
-      'flex-wrap',
-      'justify-content',
-      'align-content',
-      'align-items',
-      'align-self',
-      'flex',
-      'flex-grow',
-      'flex-shrink',
-      'flex-basis',
-      'order',
-      // 布局属性：多列
-      'columns',
-      'column-width',
-      'column-count',
-      'column-gap',
-      'column-rule',
-      'column-rule-width',
-      'column-rule-style',
-      'column-rule-color',
-      'column-span',
-      'column-fill',
-      'column-break-before',
-      'column-break-after',
-      'column-break-inside',
-      // 布局属性：格栅
-      'grid-columns',
-      'grid-rows',
-      // 尺寸属性
-      'box-sizing',
-      'margin',
-      'margin-left',
-      'margin-right',
-      'margin-top',
-      'margin-bottom',
-      'padding',
-      'padding-left',
-      'padding-right',
-      'padding-top',
-      'padding-bottom',
-      'border',
-      'border-width',
-      'border-style',
-      'border-color',
-      'border-colors',
-      'border-left',
-      'border-left-width',
-      'border-left-style',
-      'border-left-color',
-      'border-left-colors',
-      'border-right',
-      'border-right-width',
-      'border-right-style',
-      'border-right-color',
-      'border-right-colors',
-      'border-top',
-      'border-top-width',
-      'border-top-style',
-      'border-top-color',
-      'border-top-colors',
-      'border-bottom',
-      'border-bottom-width',
-      'border-bottom-style',
-      'border-bottom-color',
-      'border-bottom-colors',
-      'border-radius',
-      'border-top-left-radius',
-      'border-top-right-radius',
-      'border-bottom-left-radius',
-      'border-bottom-right-radius',
-      'border-image',
-      'border-image-source',
-      'border-image-slice',
-      'border-image-width',
-      'border-image-outset',
-      'border-image-repeat',
-      'width',
-      'min-width',
-      'max-width',
-      'height',
-      'min-height',
-      'max-height',
-      // 界面属性
-      'appearance',
-      'outline',
-      'outline-width',
-      'outline-style',
-      'outline-color',
-      'outline-offset',
-      'outline-radius',
-      'outline-radius-topleft',
-      'outline-radius-topright',
-      'outline-radius-bottomleft',
-      'outline-radius-bottomright',
-      'background',
-      'background-color',
-      'background-image',
-      'background-repeat',
-      'background-repeat-x',
-      'background-repeat-y',
-      'background-position',
-      'background-position-x',
-      'background-position-y',
-      'background-size',
-      'background-origin',
-      'background-clip',
-      'background-attachment',
-      'bakground-composite',
-      'mask',
-      'mask-mode',
-      'mask-image',
-      'mask-repeat',
-      'mask-repeat-x',
-      'mask-repeat-y',
-      'mask-position',
-      'mask-position-x',
-      'mask-position-y',
-      'mask-size',
-      'mask-origin',
-      'mask-clip',
-      'mask-attachment',
-      'mask-composite',
-      'mask-box-image',
-      'mask-box-image-source',
-      'mask-box-image-width',
-      'mask-box-image-outset',
-      'mask-box-image-repeat',
-      'mask-box-image-slice',
-      'box-shadow',
-      'box-reflect',
-      'filter',
-      'mix-blend-mode',
-      'opacity',
-      'object-fit',
-      'clip',
-      'clip-path',
-      'resize',
-      'zoom',
-      'cursor',
-      'pointer-events',
-      'user-modify',
-      'user-focus',
-      'user-input',
-      'user-select',
-      'user-drag',
-      // 文字属性
-      'line-height',
-      'line-clamp',
-      'vertical-align',
-      'direction',
-      'unicode-bidi',
-      'writing-mode',
-      'ime-mode',
-      'text-overflow',
-      'text-decoration',
-      'text-decoration-line',
-      'text-decoration-style',
-      'text-decoration-color',
-      'text-decoration-skip',
-      'text-underline-position',
-      'text-align',
-      'text-align-last',
-      'text-justify',
-      'text-indent',
-      'text-stroke',
-      'text-stroke-width',
-      'text-stroke-color',
-      'text-shadow',
-      'text-transform',
-      'text-size-adjust',
-      'src',
-      'font',
-      'font-family',
-      'font-style',
-      'font-stretch',
-      'font-weight',
-      'font-variant',
-      'font-size',
-      'font-size-adjust',
-      'color',
-      // 内容属性
-      'tab-size',
-      'overflow-wrap',
-      'word-wrap',
-      'word-break',
-      'word-spacing',
-      'letter-spacing',
-      'white-space',
-      'caret-color',
-      'quotes',
-      'content',
-      'content-visibility',
-      'counter-reset',
-      'counter-increment',
-      'page',
-      'page-break-before',
-      'page-break-after',
-      'page-break-inside',
-      // 交互属性
-      'will-change',
-      'perspective',
-      'perspective-origin',
-      'backface-visibility',
-      'transform',
-      'transform-origin',
-      'transform-style',
-      'transition',
-      'transition-property',
-      'transition-duration',
-      'transition-timing-function',
-      'transition-delay',
-      'animation',
-      'animation-name',
-      'animation-duration',
-      'animation-timing-function',
-      'animation-delay',
-      'animation-iteration-count',
-      'animation-direction',
-      'animation-play-state',
-      'animation-fill-mode',
-      // Webkit专有属性
-      '-webkit-overflow-scrolling',
-      '-webkit-box-orient',
-      '-webkit-line-clamp',
-      '-webkit-text-fill-color',
-      '-webkit-tap-highlight-color',
-      '-webkit-touch-callout',
-      '-webkit-font-smoothing',
-      '-moz-osx-font-smoothing'
-    ]
-  }
-};
-
+具体查看.stylelintrc.js
 ```
 
 `修改package.json`
@@ -579,51 +240,7 @@ export default {
 ### 配置 vite.config.js
 
 ```
-/* eslint-disable no-undef */
-import { defineConfig, loadEnv } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import { resolve } from 'path';
-import configs from './src/configs';
-
-// https://vitejs.dev/config/
-export default ({ mode }) => {
-  // 获取环境变量
-  process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
-  const { VITE_APP_API_ROOT } = process.env;
-  return defineConfig({
-    plugins: [
-      ...
-    ],
-    css: {
-      // 指定传递给 CSS 预处理器的选项
-      preprocessorOptions: {
-        less: {
-          javascriptEnabled: true, // 支持内联JavaScript
-          additionalData: `@import "@/styles/index.less";` // 引入全局样式
-        }
-      }
-    },
-    resolve: {
-      // 别名
-      alias: {
-        '@': resolve(__dirname, 'src') // src路径
-      }
-    },
-    // 开发服务器选项
-    server: {
-      port: configs.devPort, // 指定开发服务器端口
-      open: configs.devOpen, // 自动打开浏览器
-      // 为开发服务器配置自定义代理规则
-      proxy: {
-        '/api': {
-          target: VITE_APP_API_ROOT, //配置你要请求的服务器地址
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, '')
-        }
-      }
-    }
-  });
-};
+具体查看vite.config.js
 ```
 
 ### 配置 jsconfig.json
@@ -693,3 +310,69 @@ export default ({ mode }) => {
 - .env.[mode] # 只在指定模式下加载
 - 为了防止意外地将一些环境变量泄漏到客户端，只有以 VITE\_ 为前缀的变量才会暴露给
   经过 vite 处理的代码
+
+### 配置 Vue Router
+
+`安装Vue Router`
+
+```
+yarn add vue-router@4
+```
+
+`新建src/views文件夹, 并创建以下页面`
+
+```
+// src/views/Home.vue
+// src/views/About.vue
+```
+
+`新建src/routers/index.js`
+
+```
+import { createRouter, createWebHashHistory } from 'vue-router'
+import Home from '@/views/Home.vue'
+
+const routes = [
+  { path: '/', redirect: '/home' },
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: () => import('@/views/About.vue')
+  },
+]
+
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes
+})
+
+export default router
+```
+
+`修改src/main.js`
+
+```
+...;
+import router from '@/router';
+
+app.use(router);
+```
+
+`修改src/App.vue`
+
+```
+<template>
+  <div id="app">
+    <div id="nav">
+      <router-link to="/home">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
+  </div>
+</template>
+```

@@ -11,5 +11,5 @@ module.exports = {
   arrowParens: 'always', // 箭头函数，只有一个参数的时候，也需要括号
   rangeStart: 0, // 每个文件格式化的范围是文件的全部内容
   proseWrap: 'always', // 当超出print width（上面有这个参数）时就折行
-  endOfLine: 'lf' // 换行符使用 lf
+  endOfLine: 'auto' // 不检测文件每行结束的格式
 };

@@ -42,6 +42,8 @@ module.exports = {
     'no-empty-first-line': true,
     // 关闭 不允许重复的选择器 的验证
     'no-duplicate-selectors': null,
+    // 不允许空的来源
+    'no-empty-source': null,
     // 属性的排序
     'order/properties-order': [
       // 布局属性

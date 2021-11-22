@@ -16,7 +16,8 @@
   },
   "dependencies": {
     "element-plus": "^1.2.0-beta.3",
-    "vue": "^3.2.16"
+    "vue": "^3.2.16",
+    "vue-router": "4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.3",
@@ -38,7 +39,7 @@
   },
   "lint-staged": {
     "*.{js,vue}": [
-      "npm run format:all",
+      "npm run style:fix && npm run eslint:fix && npm run prettier:fix",
       "git add ."
     ]
   },
