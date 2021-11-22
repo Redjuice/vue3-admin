@@ -1,8 +1,8 @@
 {
   "recommendations": [
-    "johnsoncodehk.volar", //11
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "stylelint.vscode-stylelint"
+    "johnsoncodehk.volar", // volar: 针对vue3的插件
+    "dbaeumer.vscode-eslint", // eslint: 可组装的JavaScript和JSX检查工具
+    "esbenp.prettier-vscode", // prettier: 代码格式化工具
+    "stylelint.vscode-stylelint" // stylelint: css代码规范工具
   ]
 }

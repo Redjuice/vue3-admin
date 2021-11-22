@@ -659,6 +659,31 @@ export default ({ mode }) => {
 }
 ```
 
+### 配置 在 VS Code 中调试
+
+[在 VS Code 中调试](https://v3.cn.vuejs.org/cookbook/debugging-in-vscode.html)
+
+`新建.vscode/launch.json`
+
+```
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "vuejs: chrome",
+      "url": "http://localhost:9527",
+      "webRoot": "${workspaceFolder}/src",
+      "breakOnLoad": true,
+      "sourceMapPathOverrides": {
+        "webpack:///src/*": "${webRoot}/*"
+      }
+    }
+  ]
+}
+```
+
 ### 配置 环境变量
 
 [Vite: 环境变量和模式](https://cn.vitejs.dev/guide/env-and-mode.html)
