@@ -8,7 +8,7 @@
     "serve": "vite preview",
     "style:fix": "stylelint \"src/**/*.(vue|less|css)\" --fix",
     "eslint:fix": "eslint --fix --ext .js,.vue src",
-    "prettier:fix": "prettier --write ./src/*.{less,js,json,.vue}",
+    "prettier:fix": "prettier --write ./src/../*.{less,js,json,.vue}",
     "format:all": "npm-run-all -s style:fix eslint:fix prettier:fix",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
@@ -38,9 +38,7 @@
   },
   "lint-staged": {
     "*.{js,vue}": [
-      "stylelint \"src/**/*.(vue|less|css)\" --fix",
-      "eslint --fix --ext .js,.vue src",
-      "prettier --write ./src/*.{less,js,json,.vue}",
+      "npm run format:all",
       "git add ."
     ]
   },

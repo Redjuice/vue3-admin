@@ -70,6 +70,19 @@ module.exports = {
 }
 ```
 
+`修改package.json`
+
+```
+// package.json
+...,
+"scripts": {
+    ...,
+    "eslint:fix": "eslint --fix --ext .js,.vue src",
+    "prettier:fix": "prettier --write ./src/../*.{less,js,json,.vue}",
+    "format:all": "npm-run-all -s eslint:fix prettier:fix",
+},
+```
+
 解决`找不到模块“./App.vue”或其相应的类型声明。`的错误
 
 `新建src/shims.d.ts`
@@ -114,9 +127,7 @@ yarn add lint-staged -D
 },
 "lint-staged": {
   "*.{js,vue}": [
-    "stylelint \"src/**/*.(vue|less|css)\" --fix",
-    "eslint --fix --ext .js,.vue src",
-    "prettier --write ./src/*.{less,js,json,.vue}",
+    "npm run format:all",
     "git add ."
   ]
 },
@@ -487,12 +498,6 @@ module.exports = {
   ...,
   "style:fix": "stylelint \"src/**/*.(vue|less|css)\" --fix",
   "format:all": "npm-run-all -s style:fix eslint:fix prettier:fix",
-},
-"lint-staged": {
-  "*.{js,vue}": [
-    ...,
-    "stylelint \"src/**/*.(vue|less|css)\" --fix"
-  ]
 },
 ```
 
