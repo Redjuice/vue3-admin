@@ -107,6 +107,8 @@ git config --global core.autocrlf false
 
 ### 配置 husky + lint-staged
 
+[掘金: 配置 husky 和 lint-staged](https://juejin.cn/post/6982876819292684318#heading-1)
+
 `执行以下操作`
 
 ```
@@ -144,6 +146,8 @@ npm run lint-staged
 
 ### 配置 commitizen
 
+[掘金: 使用 commitizen 实现按团队规范提交代码](https://juejin.cn/post/6898894346695737352)
+
 ```
 // 全局安装commitizen插件
 npm install commitizen -g
@@ -164,6 +168,8 @@ commitizen init cz-conventional-changelog --save --save-exact
 ```
 
 ### 配置 stylelint
+
+[掘金: stylelint 代码自动格式化](https://juejin.cn/post/7022720509875847182#heading-0)
 
 - vscode 安装 eslint + prettier
 - 安装以下依赖
@@ -538,6 +544,8 @@ yarn add less -D
 
 ### 配置 Element Plus
 
+[自动按需导入 Element Plus](https://element-plus.gitee.io/zh-CN/guide/quickstart.html)
+
 ```
 yarn add element-plus
 
@@ -642,12 +650,21 @@ export default ({ mode }) => {
 // 当你的 JavaScript 项目变得太大而且性能降低时，通常是因为类似node_modules的库文件夹。 如果 VS 代码检测到项目变得太大，它将提示您编辑exclude。
 ```
 
-`jsconfig.json首行可能会报错, 设置.vscode/settings.json`
+`jsconfig.json首行可能会报错, 设置工作区.vscode/settings.json`
 
 ```
 {
   ...,
   "js/ts.implicitProjectConfig.checkJs": true // 启用或禁用javaScript文件的语义检查
 }
-
 ```
+
+### 配置 环境变量
+
+[Vite: 环境变量和模式](https://cn.vitejs.dev/guide/env-and-mode.html)
+
+`新建.env.[mode]文件`
+
+- .env.[mode] # 只在指定模式下加载
+- 为了防止意外地将一些环境变量泄漏到客户端，只有以 VITE\_ 为前缀的变量才会暴露给
+  经过 vite 处理的代码
