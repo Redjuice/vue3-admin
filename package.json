@@ -11,21 +11,16 @@
     "prettier:fix": "prettier --write ./src/../*.{less,js,json,.vue}",
     "format:all": "npm run style:fix && npm run eslint:fix && npm run prettier:fix",
     "prepare": "husky install",
-    "lint-staged": "lint-staged",
-    "commit": "git cz",
-    "rimraf": "rimraf node_modules"
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "element-plus": "^1.2.0-beta.3",
-    "rimraf": "^3.0.2",
     "vue": "^3.2.16",
     "vue-router": "4",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.3",
-    "cz-conventional-changelog": "^3.3.0",
-    "cz-customizable": "^6.3.0",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -45,10 +40,5 @@
       "npm run format:all",
       "git add ."
     ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-customizable"
-    }
   }
 }
