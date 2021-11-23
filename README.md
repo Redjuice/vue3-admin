@@ -115,17 +115,49 @@ yarn add lint-staged -D
 npm run lint-staged
 ```
 
-### 配置 commitizen
+### 配置 commitlint
 
-[掘金: 使用 commitizen 实现按团队规范提交代码](https://juejin.cn/post/6898894346695737352)
-[博客园: commit 规范方案探讨](https://www.cnblogs.com/dahe1989/p/13803548.html)
+[简书: 代码提交规范 husky + commitlint + lint-staged](https://www.jianshu.com/p/6653f467e993)
+
+`安装依赖`
 
 ```
-// 全局安装commitizen插件
-npm install commitizen -g
+yarn add @commitlint/cli @commitlint/config-conventional -D
+```
 
-// 使用npm包cz-conventional-changelog进行初始化
-commitizen init cz-conventional-changelog --save --save-exact
+`新建commitlint.config.js或.commitlintrc.js`
+
+```
+// 具体查看.commitlintrc.js
+```
+
+`修改.husky/pre-commit`
+
+```
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npm run lint-staged
+npx --no-install commitlint --edit $1
+```
+
+`或者新建.husky/commit-msg`
+
+```
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npx --no-install commitlint --edit $1
+```
+
+### 配置 commitizen
+
+```
+// 全局安装
+npm install -g commitizen
+
+// 项目中安装
+yarn add cz-conventional-changelog -D
 ```
 
 `修改package.json`
@@ -136,11 +168,17 @@ commitizen init cz-conventional-changelog --save --save-exact
   ...,
   "commit": "git cz"
 },
+"config": {
+  "commitizen": {
+    "path": "node_modules/cz-conventional-changelog"
+  }
+}
 ```
+
+`执行 git cz 或者 yarn commit 提交代码`
 
 ### 配置 自定义 commitizen 提交规范
 
-[阮一峰: Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
 [掘金: commitizen + husky 规范 git 提交信息](https://juejin.cn/post/6844904025868271629)
 
 `安装依赖`
