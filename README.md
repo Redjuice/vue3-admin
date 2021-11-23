@@ -442,3 +442,79 @@ const goAbout = () => {
 }
 </style>
 ```
+
+### 配置 Vuex
+
+`安装Vuex`
+
+```
+yarn add vuex@next
+```
+
+`新建src/store/index.js `
+
+```
+import { createStore } from 'vuex';
+
+export default createStore({
+  // 单一状态树
+  state: {
+    count: 0
+  },
+  // getters 暴露出去计算属性
+  getters: {
+    doubleCount: (state) => state.count * 2
+  },
+  // mutations 同步方法
+  mutations: {
+    increment(state, value) {
+      state.count += value;
+    }
+  },
+  // actions 异步方法
+  actions: {
+    incrementAsync({ commit }) {
+      setTimeout(() => {
+        commit('increment', 1);
+      }, 1000);
+    }
+  }
+});
+```
+
+`修改src/main.js`
+
+```
+...;
+import store from '@/store';
+
+app.use(store);
+```
+
+`修改src/App.vue`
+
+```
+<script setup>
+import { computed } from 'vue';
+...
+const { state, getters, commit, dispatch } = useStore();
+const count = computed(() => state.count);
+const doubleCount = computed(() => getters.doubleCount);
+const increment = () => {
+  commit('increment', 1);
+};
+const incrementAsync = () => {
+  dispatch('incrementAsync', 1);
+};
+</script>
+
+<template>
+  <div id="app">
+    ...
+    <div>count: {{ count }}</div>
+    <div>doubleCount: {{ doubleCount }}</div>
+    <el-button @click="increment">increment</el-button>
+    <el-button @click="incrementAsync">incrementAsync</el-button>
+  </div>
+</template>
+```

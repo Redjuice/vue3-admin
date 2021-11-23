@@ -1,8 +1,19 @@
 <script setup>
+import { computed } from 'vue';
 import { useRouter } from 'vue-router';
-const router = useRouter();
+import { useStore } from 'vuex';
 const goAbout = () => {
   router.push('/about');
+};
+const router = useRouter();
+const { state, getters, commit, dispatch } = useStore();
+const count = computed(() => state.count);
+const doubleCount = computed(() => getters.doubleCount);
+const increment = () => {
+  commit('increment', 1);
+};
+const incrementAsync = () => {
+  dispatch('incrementAsync', 1);
 };
 </script>
 
@@ -16,6 +27,10 @@ const goAbout = () => {
       <div @click="goAbout">goAbout</div>
     </div>
     <router-view />
+    <div>count: {{ count }}</div>
+    <div>doubleCount: {{ doubleCount }}</div>
+    <el-button @click="increment">increment</el-button>
+    <el-button @click="incrementAsync">incrementAsync</el-button>
   </div>
 </template>
 
