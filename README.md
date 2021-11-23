@@ -326,24 +326,6 @@ export default {
 }
 ```
 
-### 配置 rimraf
-
-`Rimraf 为节点提供了与 UNIX rm -rf 命令等效的命令。可以快速删除一些文件`
-
-```
-// 可全局安装
-yarn global add rimraf
-
-// 在项目中使用
-yarn add rimraf -D
-
-// 修改 package.json
-"scripts": {
-  ...,
-  "rimraf": "rimraf node_modules"
-},
-```
-
 ### 配置 环境变量
 
 [Vite: 环境变量和模式](https://cn.vitejs.dev/guide/env-and-mode.html)
