@@ -30,7 +30,7 @@ module.exports = {
     // <type> 格式 小写
     'type-case': [2, 'always', 'lower-case'],
     // <scope> 不能为空
-    'scope-empty': [2, 'never'],
+    'scope-empty': [2, 'always'],
     // <scope> 格式 小写
     'scope-case': [2, 'always', 'lower-case'],
     // <subject> 不能为空
