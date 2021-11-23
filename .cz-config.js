@@ -11,7 +11,7 @@ module.exports = {
     { value: '❌del', name: 'del: 删除代码/文件' },
     { value: '🎨style', name: 'style: 样式修改不影响逻辑' },
     { value: '📝docs', name: 'docs: 修改文档' },
-    { value: '✅test', name: 'test: 增删测试' },
+    { value: '✅test', name: 'test: 增加测试' },
     { value: '⏪revert', name: 'revert: 版本回退' },
     { value: '⌨️release', name: 'release: 发布' },
     { value: '👷deploy', name: 'deploy: 部署' }
