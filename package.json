@@ -12,6 +12,7 @@
     "format:all": "npm run style:fix && npm run eslint:fix && npm run prettier:fix",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
+    "commitmsg": "validate-commit-msg",
     "commit": "git cz"
   },
   "dependencies": {
@@ -21,7 +22,10 @@
     "vuex": "^4.0.2"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^15.0.0",
     "@vitejs/plugin-vue": "^1.9.3",
+    "commitlint": "^15.0.0",
+    "commitlint-config-gitmoji": "^2.2.5",
     "cz-customizable": "^6.3.0",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
@@ -35,6 +39,7 @@
     "stylelint-config-standard": "^22.0.0",
     "stylelint-order": "^5.0.0",
     "unplugin-vue-components": "^0.17.2",
+    "validate-commit-msg": "^2.14.0",
     "vite": "^2.6.4"
   },
   "lint-staged": {
