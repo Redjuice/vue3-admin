@@ -140,6 +140,7 @@ commitizen init cz-conventional-changelog --save --save-exact
 
 ### 配置 自定义 commitizen 提交规范
 
+[阮一峰: Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
 [掘金: commitizen + husky 规范 git 提交信息](https://juejin.cn/post/6844904025868271629)
 
 `安装依赖`
