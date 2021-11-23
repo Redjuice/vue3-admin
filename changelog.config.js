@@ -13,7 +13,7 @@ module.exports = {
     'perf'
   ],
   maxMessageLength: 64,
-  minMessageLength: 3,
+  minMessageLength: 2,
   questions: [
     'type',
     // 'scope',

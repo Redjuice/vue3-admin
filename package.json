@@ -12,7 +12,7 @@
     "format:all": "npm run style:fix && npm run eslint:fix && npm run prettier:fix",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
-    "commit": "git cz"
+    "commit": "git-cz"
   },
   "dependencies": {
     "element-plus": "^1.2.0-beta.3",
@@ -24,9 +24,6 @@
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
     "@vitejs/plugin-vue": "^1.9.3",
-    "commitlint-config-gitmoji": "^2.2.5",
-    "cz-conventional-changelog": "^3.3.0",
-    "cz-customizable": "^6.3.0",
     "eslint": "^8.2.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
