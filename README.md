@@ -46,12 +46,11 @@ yarn add eslint eslint-plugin-vue eslint-config-prettier eslint-plugin-prettier 
 
 ```
 // package.json
-...,
 "scripts": {
-    ...,
-    "eslint:fix": "eslint --fix --ext .js,.vue src",
-    "prettier:fix": "prettier --write ./src/../*.{less,js,json,.vue}",
-    "format:all": "npm run eslint:fix && npm run prettier:fix",
+  ...,
+  "eslint:fix": "eslint --fix --ext .js,.vue src",
+  "prettier:fix": "prettier --write ./src/../*.{less,js,json,.vue}",
+  "format:all": "npm run eslint:fix && npm run prettier:fix",
 },
 ```
 
@@ -80,6 +79,7 @@ git config --global core.autocrlf false
 ### 配置 husky + lint-staged
 
 [掘金: 配置 husky 和 lint-staged](https://juejin.cn/post/6982876819292684318#heading-1)
+[知乎: husky 使用总结](https://zhuanlan.zhihu.com/p/366786798)
 
 `执行以下操作`
 
@@ -94,10 +94,9 @@ yarn add lint-staged -D
 
 ```
 // package.json
-...,
 "scripts": {
-    ...,
-    "lint-staged": "lint-staged"
+  ...,
+  "lint-staged": "lint-staged"
 },
 "lint-staged": {
   "*.{js,vue}": [
@@ -133,10 +132,9 @@ commitizen init cz-conventional-changelog --save --save-exact
 
 ```
 // package.json
-...,
 "scripts": {
-    ...,
-    "commit": "git cz"
+  ...,
+  "commit": "git cz"
 },
 ```
 
@@ -147,7 +145,8 @@ commitizen init cz-conventional-changelog --save --save-exact
 `安装依赖`
 
 ```
-yarn add commitlint-config-cz  cz-customizable -D
+yarn add cz-customizable -D
+yarn add commitlint-config-cz -D // 注意: 不确定是否需要该插件, 目前不使用也可以实现功能
 ```
 
 `新建.cz-config.js`
@@ -156,10 +155,13 @@ yarn add commitlint-config-cz  cz-customizable -D
 具体查看.cz-config.js
 ```
 
-`新建.commitlintrc.js`
+`新建.commitlintrc.js(注意: 不确定是否需要该配置, 目前不使用也可以实现功能)`
 
 ```
-具体查看.commitlintrc.js
+module.exports = {
+  extends: ['cz']
+};
+
 ```
 
 ### 配置 stylelint
@@ -183,7 +185,6 @@ yarn add stylelint stylelint-config-standard stylelint-order -D
 
 ```
 // package.json
-...,
 "scripts": {
   ...,
   "style:fix": "stylelint \"src/**/*.(vue|less|css)\" --fix",
@@ -324,6 +325,24 @@ export default {
 }
 ```
 
+### 配置 rimraf
+
+`Rimraf 为节点提供了与 UNIX rm -rf 命令等效的命令。可以快速删除一些文件`
+
+```
+// 可全局安装
+yarn global add rimraf
+
+// 在项目中使用
+yarn add rimraf -D
+
+// 修改 package.json
+"scripts": {
+  ...,
+  "rimraf": "rimraf node_modules"
+},
+```
+
 ### 配置 环境变量
 
 [Vite: 环境变量和模式](https://cn.vitejs.dev/guide/env-and-mode.html)
@@ -418,7 +437,6 @@ const goAbout = () => {
 
   #nav {
     .flex-center();
-
     cursor: pointer;
   }
 }

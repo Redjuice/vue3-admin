@@ -12,16 +12,17 @@
     "format:all": "npm run style:fix && npm run eslint:fix && npm run prettier:fix",
     "prepare": "husky install",
     "lint-staged": "lint-staged",
-    "commit": "git cz"
+    "commit": "git cz",
+    "rimraf": "rimraf node_modules"
   },
   "dependencies": {
     "element-plus": "^1.2.0-beta.3",
+    "rimraf": "^3.0.2",
     "vue": "^3.2.16",
     "vue-router": "4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.9.3",
-    "commitlint-config-cz": "^0.13.2",
     "cz-conventional-changelog": "^3.3.0",
     "cz-customizable": "^6.3.0",
     "eslint": "^8.2.0",
