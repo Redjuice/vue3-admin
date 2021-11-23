@@ -140,6 +140,7 @@ commitizen init cz-conventional-changelog --save --save-exact
 
 ### 配置 自定义 commitizen 提交规范
 
+[阮一峰: Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
 [掘金: commitizen + husky 规范 git 提交信息](https://juejin.cn/post/6844904025868271629)
 
 `安装依赖`
@@ -323,24 +324,6 @@ export default {
     }
   ]
 }
-```
-
-### 配置 rimraf
-
-`Rimraf 为节点提供了与 UNIX rm -rf 命令等效的命令。可以快速删除一些文件`
-
-```
-// 可全局安装
-yarn global add rimraf
-
-// 在项目中使用
-yarn add rimraf -D
-
-// 修改 package.json
-"scripts": {
-  ...,
-  "rimraf": "rimraf node_modules"
-},
 ```
 
 ### 配置 环境变量
