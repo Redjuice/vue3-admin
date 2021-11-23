@@ -6,7 +6,7 @@ module.exports = {
     { value: '🐛fix', name: 'fix: 修复bug' },
     { value: '⚡️perf', name: 'perf: 性能优化' },
     { value: '♻️refactor', name: 'refactor: 代码重构' },
-    { value: 'chore', name: '🛠️ chore: 更改配置文件' },
+    { value: 'chore', name: '🛠️chore: 更改配置文件' },
     { value: '➕add', name: 'add: 添加依赖' },
     { value: '❌del', name: 'del: 删除代码/文件' },
     { value: '🎨style', name: 'style: 样式修改不影响逻辑' },
