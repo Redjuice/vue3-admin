@@ -673,3 +673,23 @@ const {
 
 $filters.formatDate(1637749950);
 ```
+
+### 配置 axios
+
+`安装`
+
+```
+yarn add axios
+```
+
+`新建utils/https.js文件夹`
+
+```
+// 具体查看utils/https.js
+```
+
+`使用`
+
+```
+// 具体查看aips/*.js
+```
