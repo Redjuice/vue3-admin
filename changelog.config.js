@@ -2,15 +2,21 @@ module.exports = {
   disableEmoji: false,
   format: '{type}{scope}: {emoji}{subject}',
   list: [
-    'test',
+    'init',
     'feat',
+    'ui',
     'fix',
-    'chore',
-    'docs',
+    'perf',
     'refactor',
+    'chore',
+    'add',
+    'del',
     'style',
-    'ci',
-    'perf'
+    'docs',
+    'test',
+    'revert',
+    'release',
+    'deploy'
   ],
   maxMessageLength: 64,
   minMessageLength: 2,
@@ -25,55 +31,80 @@ module.exports = {
   ],
   scopes: [],
   types: {
-    chore: {
-      description: 'Build process or auxiliary tool changes',
-      emoji: '🤖',
-      value: 'chore'
-    },
-    ci: {
-      description: 'CI related changes',
-      emoji: '🎡',
-      value: 'ci'
-    },
-    docs: {
-      description: 'Documentation only changes',
-      emoji: '✏️',
-      value: 'docs'
+    init: {
+      description: '初始提交',
+      emoji: '🎉',
+      value: 'init'
     },
     feat: {
-      description: 'A new feature',
-      emoji: '🎸',
+      description: '增加新功能',
+      emoji: '✨',
       value: 'feat'
     },
+    ui: {
+      description: '更新UI',
+      emoji: '🌻',
+      value: 'ui'
+    },
     fix: {
-      description: 'A bug fix',
+      description: '修复bug',
       emoji: '🐛',
       value: 'fix'
     },
     perf: {
-      description: 'A code change that improves performance',
+      description: '性能优化',
       emoji: '⚡️',
       value: 'perf'
     },
     refactor: {
-      description: 'A code change that neither fixes a bug or adds a feature',
-      emoji: '💡',
+      description: '代码重构',
+      emoji: '♻️',
       value: 'refactor'
     },
-    release: {
-      description: 'Create a release commit',
-      emoji: '🏹',
-      value: 'release'
+    chore: {
+      description: '更改配置文件',
+      emoji: '🛠️',
+      value: 'chore'
+    },
+    add: {
+      description: '添加依赖',
+      emoji: '➕',
+      value: 'add'
+    },
+    del: {
+      description: '删除代码/文件',
+      emoji: '❌',
+      value: 'del'
     },
     style: {
-      description: 'Markup, white-space, formatting, missing semi-colons...',
-      emoji: '💄',
+      description: '样式修改不影响逻辑',
+      emoji: '🎨',
       value: 'style'
+    },
+    docs: {
+      description: '修改文档',
+      emoji: '📝',
+      value: 'docs'
     },
     test: {
       description: '增加测试',
       emoji: '✅',
       value: 'test'
+    },
+    revert: {
+      description: '版本回退',
+      emoji: '⏪',
+      value: 'revert'
+    },
+    release: {
+      description: '发布',
+      emoji: '⌨️',
+      value: 'release'
+    },
+    deploy: {
+      description: '部署',
+      emoji: '👷',
+      value: 'deploy'
     }
   }
 };

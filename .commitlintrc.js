@@ -10,19 +10,19 @@ module.exports = {
       [
         'init',
         'feat',
-        'fix',
         'ui',
+        'fix',
+        'perf',
         'refactor',
-        'replace',
-        'deploy',
+        'chore',
+        'add',
+        'del',
+        'style',
         'docs',
         'test',
-        'chore',
-        'style',
         'revert',
-        'add',
-        'minus',
-        'del'
+        'replace',
+        'deploy'
       ]
     ],
     // <type> 不能为空

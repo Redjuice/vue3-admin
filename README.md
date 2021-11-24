@@ -154,9 +154,11 @@ npx --no-install commitlint --edit $1
 
 ```
 // 全局安装
+// 它会提供 git cz 命令替代我们的 git commit命令，帮助我们更加方便生成符合规范的 commit message。
 npm install -g commitizen
 
 // 项目中安装
+// commitizen 的首选适配器
 yarn add cz-conventional-changelog -D
 ```
 
@@ -210,7 +212,7 @@ module.exports = {
     { value: 'ui', name: '🌻ui: 更新UI' },
     { value: 'fix', name: '🐛fix: 修复bug' },
     { value: 'perf', name: '⚡️perf: 性能优化' },
-    { value: 'refactor', name: 'refactor: 代码重构' },
+    { value: 'refactor', name: '♻️refactor: 代码重构' },
     { value: 'chore', name: '🛠️chore: 更改配置文件' },
     { value: 'add', name: '➕add: 添加依赖' },
     { value: 'del', name: '❌del: 删除代码/文件' },
