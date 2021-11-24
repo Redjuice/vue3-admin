@@ -338,7 +338,7 @@ yarn add less -D
 yarn add element-plus
 
 // 自动按需导入
-yarn add unplugin-vue-components -D
+yarn add unplugin-vue-components vite-plugin-style-import -D
 
 // 修改vite.config.js
 // vite.config.ts
@@ -348,10 +348,22 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 export default {
   plugins: [
     ...,
-    // 自动按需导入Element Plus
+    // 自动按需导入Element Plus的组件
     Components({
       resolvers: [ElementPlusResolver()],
     }),
+    // 自动按需导入Element Plus的css样式
+    styleImport({
+        libs: [
+          {
+            libraryName: 'element-plus',
+            esModule: true,
+            resolveStyle: (name) => {
+              return `element-plus/theme-chalk/${name}.css`;
+            }
+          }
+        ]
+      })
   ],
 }
 ```
@@ -602,4 +614,22 @@ const incrementAsync = () => {
     <el-button @click="incrementAsync">incrementAsync</el-button>
   </div>
 </template>
+```
+
+### 配置公共指令
+
+`新建src/directives文件夹`
+
+```
+// 具体查看src/directives
+
+// src/directives/index.js, 暴露一个 install 方法, 用于注册全局指令
+```
+
+`修改main.js, 注册全局指令`
+
+```
+import directives from '@/directives';
+
+app.use(directives);
 ```

@@ -2,6 +2,7 @@
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
+
 const goAbout = () => {
   router.push('/about');
 };
@@ -15,6 +16,10 @@ const increment = () => {
 const incrementAsync = () => {
   dispatch('incrementAsync', 1);
 };
+const msg = '复制内容';
+const success = (value) => {
+  console.log(value);
+};
 </script>
 
 <template>
@@ -27,7 +32,7 @@ const incrementAsync = () => {
       <div @click="goAbout">goAbout</div>
     </div>
     <router-view />
-    <div>count: {{ count }}</div>
+    <div v-copy:[success]="msg">count: {{ count }}</div>
     <div>doubleCount: {{ doubleCount }}</div>
     <el-button @click="increment">increment</el-button>
     <el-button @click="incrementAsync">incrementAsync</el-button>

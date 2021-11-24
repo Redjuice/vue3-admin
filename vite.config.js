@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 import { defineConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import styleImport from 'vite-plugin-style-import';
 import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import { resolve } from 'path';
@@ -17,6 +18,17 @@ export default ({ mode }) => {
       // 自动按需导入Element Plus
       Components({
         resolvers: [ElementPlusResolver()]
+      }),
+      styleImport({
+        libs: [
+          {
+            libraryName: 'element-plus',
+            esModule: true,
+            resolveStyle: (name) => {
+              return `element-plus/theme-chalk/${name}.css`;
+            }
+          }
+        ]
       })
     ],
     css: {
