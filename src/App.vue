@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue';
+import { computed, getCurrentInstance } from 'vue';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 
@@ -16,10 +16,22 @@ const increment = () => {
 const incrementAsync = () => {
   dispatch('incrementAsync', 1);
 };
-const msg = '复制内容';
+const msg = '这是复制的内容';
 const success = (value) => {
   console.log(value);
 };
+
+const {
+  appContext: {
+    config: {
+      globalProperties: { $filters }
+    }
+  }
+} = getCurrentInstance();
+
+const formatDate = $filters.formatDate(1637749950);
+
+console.log(formatDate);
 </script>
 
 <template>
@@ -32,10 +44,12 @@ const success = (value) => {
       <div @click="goAbout">goAbout</div>
     </div>
     <router-view />
-    <div v-copy:[success]="msg">count: {{ count }}</div>
+    <div>count: {{ count }}</div>
     <div>doubleCount: {{ doubleCount }}</div>
     <el-button @click="increment">increment</el-button>
     <el-button @click="incrementAsync">incrementAsync</el-button>
+    <el-button v-copy:[success]="msg">指令: 点击复制</el-button>
+    <div>过滤器: {{ $filters.formatDate(1637749950) }}</div>
   </div>
 </template>
 

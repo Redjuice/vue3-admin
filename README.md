@@ -633,3 +633,43 @@ import directives from '@/directives';
 
 app.use(directives);
 ```
+
+### 配置公共过滤器
+
+`vue3已经抛弃过滤器, 可以使用以下方式变通实现`
+
+`新建src/filters文件夹`
+
+```
+// 具体查看src/filters
+
+// src/directives/index.js, 暴露一个 install 方法, 用于注册全局过滤器
+```
+
+`修改main.js, 注册全局过滤器`
+
+```
+import filters from '@/filters';
+
+app.use(filters);
+```
+
+`使用`
+
+```
+// 在template中使用
+{{ $filters.formatDate(1637749950) }}
+
+// 在script中使用
+import {  getCurrentInstance } from 'vue';
+
+const {
+  appContext: {
+    config: {
+      globalProperties: { $filters }
+    }
+  }
+} = getCurrentInstance();
+
+$filters.formatDate(1637749950);
+```

@@ -1,11 +1,9 @@
-<template>
-  <div>Home</div>
-</template>
-
-<script>
-export default {
-  name: 'Vue3Home'
-};
+<script setup>
+import HelloWorld from '@/components/HelloWorld.vue';
 </script>
+
+<template>
+  <HelloWorld />
+</template>
 
 <style lang="less" scoped></style>

@@ -4,7 +4,6 @@ export default {
   name: 'copy',
   hooks: {
     beforeMount(el, binding) {
-      console.log(el, binding);
       el.targetContent = binding.value;
       const success = binding.arg;
       el.addEventListener('click', () => {
@@ -25,7 +24,6 @@ export default {
         // TODO: 该方法可能可能会被删除, 目前没有替代的方法
         // https://segmentfault.com/q/1010000022841994?utm_source=tag-newest
         const res = document.execCommand('Copy');
-        // res && console.log('复制成功，剪贴板内容：' + el.targetContent);
         res && success
           ? success(el.targetContent)
           : ElMessage.success('复制成功');
