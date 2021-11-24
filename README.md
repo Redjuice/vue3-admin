@@ -465,7 +465,7 @@ yarn add vue-router@4
 // src/views/About.vue
 ```
 
-`新建src/routers/index.js`
+`新建src/routes/index.js`
 
 ```
 import { createRouter, createWebHashHistory } from 'vue-router'
@@ -693,3 +693,9 @@ yarn add axios
 ```
 // 具体查看aips/*.js
 ```
+
+---
+
+下面是具体业务的实现
+
+---
