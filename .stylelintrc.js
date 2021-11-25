@@ -44,6 +44,8 @@ module.exports = {
     'no-duplicate-selectors': null,
     // 不允许空的来源
     'no-empty-source': null,
+    //
+    'selector-pseudo-class-no-unknown': null,
     // 属性的排序
     'order/properties-order': [
       // 布局属性

@@ -6,15 +6,17 @@
     "start": "vite",
     "build": "vite build",
     "serve": "vite preview",
+    "new": "plop",
+    "commit": "git-cz",
     "style:fix": "stylelint \"src/**/*.(vue|less|css)\" --fix",
     "eslint:fix": "eslint --fix --ext .js,.vue src",
     "prettier:fix": "prettier --write ./src/../*.{less,js,json,.vue}",
     "format:all": "npm run style:fix && npm run eslint:fix && npm run prettier:fix",
     "prepare": "husky install",
-    "lint-staged": "lint-staged",
-    "commit": "git-cz"
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
+    "@element-plus/icons": "^0.0.11",
     "axios": "^0.24.0",
     "element-plus": "^1.2.0-beta.3",
     "number-precision": "^1.5.1",
@@ -34,6 +36,7 @@
     "husky": "^7.0.0",
     "less": "^4.1.2",
     "lint-staged": "^12.0.3",
+    "plop": "^2.7.6",
     "prettier": "^2.4.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",

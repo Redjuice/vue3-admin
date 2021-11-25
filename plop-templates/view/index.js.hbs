@@ -1,0 +1,13 @@
+/**
+ * @description 模块配置
+ */
+export default {
+  icon: 'el-icon-user-solid', // 菜单所显示的icon
+  cname: '{{ cname }}', // 菜单以及权限验证所显示的中文名*必填）
+  ename: '{{ ename }}', // 权限验证所使用的 key 值，同时还可当作 name 在路由跳转中使用（*必填）
+  description: '', //模块描述
+  hide: {{ hide }},
+  is_authorization: true, //是否要进行权限验证
+  type: 'base', // 区分 boss应用标识
+  children: [] //子模块
+};
